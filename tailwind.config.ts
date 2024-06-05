@@ -7,7 +7,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    // "extend" the colors theme of tailwindcss with your custom-named reusable colors, this creates more consistency inside your application
+    // "extend" the themes of tailwindcss with your custom-named reusable values, this creates more consistency inside your application
     extend: {
       colors: {
         // create color theme named "default"
@@ -24,6 +24,10 @@ const config: Config = {
         btn: {
           default: "#3673fd",
         },
+      },
+      screens: {
+        xl: "1280px", // override tailwind's default "xl" value
+        "1xl": "1366px",
       },
     },
   },
