@@ -7,11 +7,23 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    // "extend" the colors theme of tailwindcss with your custom-named reusable colors, this creates more consistency inside your application
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        // create color theme named "default"
+        default: {
+          bg: "#0d0c22",
+          text: "white",
+        },
+        // create color theme named "secondary"
+        secondary: {
+          bgSoft: "#2d2b42",
+          textSoft: "#e5e5e5",
+        },
+        // create color theme named "btn"
+        btn: {
+          default: "#3673fd",
+        },
       },
     },
   },
