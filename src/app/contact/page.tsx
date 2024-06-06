@@ -5,7 +5,7 @@ const ContactPage = () => {
     // Page container
     <div className="pageContainer">
       {/* Left section */}
-      <div className="imgContainer">
+      <div className="imgContainer h-[500px]">
         <Image
           src="/contact.png"
           alt="Contact Image"
@@ -17,12 +17,23 @@ const ContactPage = () => {
       {/* Right section */}
       <div className="flex-1">
         {/* form */}
-        <form action="" className="flex flex-col">
-          <input type="text" placeholder="Name and Surname" />
-          <input type="text" placeholder="Email Address" />
-          <input type="text" placeholder="Phone Number (Optional)" />
-          <textarea name="" id="" cols={30} rows={10} placeholder="Message" />
-          <button>Send</button>
+        <form action="" className="flex flex-col gap-[20px]">
+          <input type="text" placeholder="Name and Surname" className="input" />
+          <input type="text" placeholder="Email Address" className="input" />
+          <input
+            type="text"
+            placeholder="Phone Number (Optional)"
+            className="input"
+          />
+          <textarea
+            name=""
+            id=""
+            cols={30}
+            rows={10}
+            placeholder="Message"
+            className="input"
+          />
+          <button className="blueBtn">Send</button>
         </form>
       </div>
     </div>

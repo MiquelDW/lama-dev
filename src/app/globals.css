@@ -28,3 +28,13 @@
 .box .boxtitle {
   @apply text-btn-default text-[30px] font-bold;
 }
+
+/* Form page */
+.input {
+  @apply rounded-[5px] border-none bg-secondary-bgSoft p-[20px] text-default-text outline-none;
+}
+
+/* Buttons */
+.blueBtn {
+  @apply bg-btn-default cursor-pointer rounded-[5px] border-none p-[20px] text-default-text;
+}

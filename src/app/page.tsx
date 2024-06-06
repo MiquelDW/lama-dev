@@ -18,9 +18,7 @@ export default function Home() {
 
         {/* buttons */}
         <div className="flex gap-[20px]">
-          <button className="min-[120px] bg-btn-default cursor-pointer rounded-[5px] border-none p-[20px] text-default-text">
-            Learn More
-          </button>
+          <button className="blueBtn min-[120px]">Learn More</button>
           <button className="min-[120px] cursor-pointer rounded-[5px] border-none bg-default-text p-[20px] text-default-bg">
             Contact
           </button>

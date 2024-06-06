@@ -16,7 +16,7 @@ type NavLinkProps = {
 const NavLink = ({ linkItem }: NavLinkProps) => {
   // get the current pathname with 'usePathname' hook
   const pathName = usePathname();
-  console.log(pathName);
+  // console.log(pathName);
 
   // navigate user to the specified routes
   return (
