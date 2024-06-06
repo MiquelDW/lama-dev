@@ -4,11 +4,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     // Page container
-    <div className="pageContainer">
+    <div className="pageContainer mlg:flex-col mlg:text-center">
       {/* Left section */}
-      <div className="textContainer">
+      <div className="textContainer mlg:items-center">
         {/* title + description */}
-        <h1 className="text-[96px] font-bold leading-tight">
+        <h1 className="text-[96px] font-bold leading-tight mmd:text-[64px]">
           Creative Thoughts Agency.
         </h1>
         <p className="text-[20px]">
@@ -24,10 +24,10 @@ export default function Home() {
           </button>
         </div>
 
-        {/* brands */}
-        <div className="relative h-[50px] w-[500px] grayscale">
+        {/* brands (DELETED) */}
+        {/* <div className="relative h-[50px] w-[500px] grayscale mmd:w-full">
           <Image src="/brands.png" alt="Brands images" fill />
-        </div>
+        </div> */}
       </div>
 
       {/* Right section */}

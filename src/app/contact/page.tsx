@@ -3,7 +3,7 @@ import Image from "next/image";
 const ContactPage = () => {
   return (
     // Page container
-    <div className="pageContainer">
+    <div className="pageContainer items-center mmd:flex-col">
       {/* Left section */}
       <div className="imgContainer h-[500px]">
         <Image

@@ -7,7 +7,7 @@
   @apply flex h-[100px] items-center justify-between;
 }
 
-/* Home, About & Contact pages */
+/* Home, About, Contact & Single Blog pages */
 .pageContainer {
   @apply flex gap-[100px];
 }
@@ -26,7 +26,7 @@
 }
 
 .box .boxtitle {
-  @apply text-btn-default text-[30px] font-bold;
+  @apply text-[30px] font-bold text-btn-default;
 }
 
 /* Form page */
@@ -36,5 +36,5 @@
 
 /* Buttons */
 .blueBtn {
-  @apply bg-btn-default cursor-pointer rounded-[5px] border-none p-[20px] text-default-text;
+  @apply cursor-pointer rounded-[5px] border-none bg-btn-default p-[20px] text-default-text;
 }

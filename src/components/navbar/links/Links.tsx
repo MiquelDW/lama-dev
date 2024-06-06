@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import NavLink from "./navLink/navLink";
+import Image from "next/image";
 
 // links data
 const links = [
@@ -36,7 +37,7 @@ const Links = () => {
     // Links container
     <div className="relative">
       {/* navigation section */}
-      <nav className="mmd:hidden flex items-center gap-[10px]">
+      <nav className="flex items-center gap-[10px] mmd:hidden">
         {/* create a seperate <NavLink> component instance for each Nav Link */}
         {links.map((link) => (
           <NavLink key={link.title} linkItem={link} />
@@ -59,14 +60,16 @@ const Links = () => {
       </nav>
 
       {/* Menu section (small screen) */}
-      <button
+      <Image
+        src="/menu.png"
+        alt="Menubutton"
+        width={30}
+        height={30}
         onClick={() => setOpen((prevOpen) => !prevOpen)}
-        className="mmd:block hidden min-w-[50px] cursor-pointer text-[30px] font-bold"
-      >
-        Menu
-      </button>
+        className="hidden cursor-pointer mmd:block"
+      />
       {open && (
-        <div className="mmd:flex absolute right-[-30px] top-[100px] z-[999] hidden h-[calc(100vh-100px)] w-[300px] flex-col items-center justify-center gap-10 bg-default-bg">
+        <div className="absolute right-[-38px] top-[100px] z-[999] hidden h-[calc(100vh-200px)] w-[300px] flex-col items-center justify-center gap-[10px] bg-default-bg mmd:flex">
           {links.map((link) => (
             <NavLink linkItem={link} key={link.title} />
           ))}

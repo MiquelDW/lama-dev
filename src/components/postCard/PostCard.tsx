@@ -16,15 +16,25 @@ const PostCard = () => {
             className="object-cover"
           />
         </div>
-        <span className="w-[10%] rotate-[270deg] text-[12px]">01.01.2024</span>
+        <span className="m-auto w-[10%] rotate-[270deg] text-[12px]">
+          01.01.2024
+        </span>
       </div>
 
       {/* Bottom section */}
       <div className="flex flex-col">
-        <h1 className="">Title</h1>
-        <p className="">Description</p>
-        {/* navigate users to the specified route */}
-        <Link href="/blog/post">READ MORE</Link>
+        <h1 className="mb-[20px] w-[90%] text-[24px]">Title</h1>
+        <p className="mb-[20px] w-[90%] font-light text-gray-400">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
+          accusantium asperiores, placeat sit dolore amet, voluptatibus quam
+          distinctio, ratione pariatur excepturi! Iusto, unde quidem! Rem nemo
+          ratione blanditiis hic culpa? Dolores omnis earum perferendis odio
+          corporis minima rem officia! Sequi nulla fugit cum accusantium.
+        </p>
+        {/* navigate user to the specified route */}
+        <Link className="underline" href="/blog/post">
+          READ MORE
+        </Link>
       </div>
     </div>
   );

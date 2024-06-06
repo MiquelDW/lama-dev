@@ -4,7 +4,7 @@ import Image from "next/image";
 const AboutPage = () => {
   return (
     // Page container
-    <div className="pageContainer">
+    <div className="pageContainer mmd:flex-col">
       {/* exm. <Image /> */}
       {/* <div className="relative h-[500px] w-[500px]">
         <Image
@@ -29,7 +29,7 @@ const AboutPage = () => {
         </p>
 
         {/* information about us */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between text-center mmd:flex-col mmd:gap-[50px]">
           <div className="box">
             <h1 className="boxtitle">10 K+</h1>
             <p>Year of experience</p>
