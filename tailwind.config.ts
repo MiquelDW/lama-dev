@@ -26,8 +26,13 @@ const config: Config = {
         },
       },
       screens: {
-        xl: "1280px", // override tailwind's default "xl" value
-        "1xl": "1366px",
+        m2xl: { max: "1536px" },
+        m1xl: { max: "1366px" },
+        mxl: { max: "1280px" },
+        mlg: { max: "1024px" },
+        mmd: { max: "768px" },
+        msm: { max: "640px" },
+        mxsm: { max: "475px" },
       },
     },
   },

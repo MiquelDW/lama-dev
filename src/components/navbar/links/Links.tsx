@@ -33,9 +33,10 @@ const Links = () => {
   const isAdmin = true;
 
   return (
-    <div>
+    // Links container
+    <div className="relative">
       {/* navigation section */}
-      <nav className="hidden items-center gap-[10px] md:flex">
+      <nav className="mmd:hidden flex items-center gap-[10px]">
         {/* create a seperate <NavLink> component instance for each Nav Link */}
         {links.map((link) => (
           <NavLink key={link.title} linkItem={link} />
@@ -60,12 +61,12 @@ const Links = () => {
       {/* Menu section (small screen) */}
       <button
         onClick={() => setOpen((prevOpen) => !prevOpen)}
-        className="block cursor-pointer text-[30px] font-bold md:hidden"
+        className="mmd:block hidden min-w-[50px] cursor-pointer text-[30px] font-bold"
       >
         Menu
       </button>
       {open && (
-        <div className="absolute right-0 top-[100px] flex h-[calc(100vh-100px)] w-1/2 flex-col items-center justify-center gap-10 bg-red-500 md:hidden">
+        <div className="mmd:flex absolute right-[-30px] top-[100px] z-[999] hidden h-[calc(100vh-100px)] w-[300px] flex-col items-center justify-center gap-10 bg-default-bg">
           {links.map((link) => (
             <NavLink linkItem={link} key={link.title} />
           ))}

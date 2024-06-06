@@ -18,8 +18,8 @@ const NavLink = ({ linkItem }: NavLinkProps) => {
   const pathName = usePathname();
   // console.log(pathName);
 
-  // navigate user to the specified routes
   return (
+    // navigate user to the specified routes
     <Link
       href={linkItem.path}
       className={`min-w-[100px] rounded-[20px] p-[10px] text-center font-medium ${pathName === linkItem.path && "bg-default-text text-default-bg"}`}
