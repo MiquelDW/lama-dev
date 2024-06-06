@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-default-bg text-default-text">
         {/* main container */}
-        <div className="1xl:w-[1280px] m-auto flex min-h-screen w-[475px] flex-col justify-between px-[50px] md:w-[640px] lg:w-[768px] xl:w-[1024px] 2xl:w-[1536px]">
+        <div className="m-auto flex min-h-screen w-[475px] flex-col justify-between px-[50px] md:w-[640px] lg:w-[768px] xl:w-[1024px] 1xl:w-[1280px] 2xl:w-[1536px]">
           <Navbar />
 
           {/* components passed to the Root Layout */}

@@ -4,7 +4,7 @@ import Links from "./links/Links";
 const Navbar = () => {
   return (
     // header container
-    <header className="flex h-[100px] items-center justify-between gap-2">
+    <header className="top-bottom-section gap-2">
       <Link href="/" className="text-[30px] font-bold">
         Logo
       </Link>

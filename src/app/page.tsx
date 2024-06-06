@@ -3,30 +3,44 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="">
+    // Page container
+    <div className="pageContainer">
       {/* Left section */}
-      <div className="">
+      <div className="textContainer">
         {/* title + description */}
-        <h1 className="">Creative Thoughts Agency.</h1>
-        <p>
+        <h1 className="text-[96px] font-bold leading-tight">
+          Creative Thoughts Agency.
+        </h1>
+        <p className="text-[20px]">
           We are a creative agency that specializes in creating beautiful
           websites and applications for our clients.
         </p>
 
         {/* buttons */}
-        <div>
-          <button className="">Learn More</button>
-          <button className="">Contact</button>
+        <div className="flex gap-[20px]">
+          <button className="min-[120px] bg-btn-default cursor-pointer rounded-[5px] border-none p-[20px] text-default-text">
+            Learn More
+          </button>
+          <button className="min-[120px] cursor-pointer rounded-[5px] border-none bg-default-text p-[20px] text-default-bg">
+            Contact
+          </button>
         </div>
 
         {/* brands */}
-        <div>
-          <Image src="/brands.png" alt="" width={500} height={500} />
+        <div className="relative h-[50px] w-[500px] grayscale">
+          <Image src="/brands.png" alt="Brands images" fill />
         </div>
       </div>
 
-      {/* right section */}
-      <div className=""></div>
+      {/* Right section */}
+      <div className="imgContainer">
+        <Image
+          src="/hero.gif"
+          alt="Home Image"
+          fill
+          className="object-contain"
+        />
+      </div>
     </div>
   );
 }
