@@ -37,6 +37,7 @@ export default function Home() {
           alt="Home Image"
           fill
           className="object-contain"
+          unoptimized
         />
       </div>
     </div>

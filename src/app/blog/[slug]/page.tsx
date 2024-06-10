@@ -1,7 +1,58 @@
+import PostUser from "@/components/postUser/PostUser";
 import Image from "next/image";
+import { ReadonlyURLSearchParams } from "next/navigation";
+import { Suspense } from "react";
+
+// GET request handler function
+const getData = async (slug: string) => {
+  try {
+    // create a GET HTTP request to the speficified URL using the Fetch API
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${slug}`,
+    );
+
+    // handles HTTP errors that the Fetch API itself does not treat as errors
+    if (!res.ok) {
+      // throw new error to catch block with a message indicating the HTTP status
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
+    // parse the response body from the fetch request as JSON
+    const posts = await res.json();
+    // return the fetched and parsed data
+    return posts;
+  } catch (err) {
+    if (err instanceof Error) {
+      // handle both network errors and HTTP errors
+      console.log(err.message);
+    } else {
+      console.log("An unknown error occured");
+    }
+  }
+};
+
+type SinglePostPageProps = {
+  // contains route parameters of the current URL (names must match!!)
+  params: { slug: string };
+  // contains query parameters of the current URL
+  searchParams: ReadonlyURLSearchParams;
+};
 
 // dynamic page for each blog post from whatever user
-const SinglePostPage = () => {
+// destructure 'params' and 'searchParams' from given 'props' object
+const SinglePostPage = async ({
+  params,
+  searchParams,
+}: SinglePostPageProps) => {
+  console.log(params, searchParams);
+
+  // destructure route parameter 'slug' from the given 'params' prop
+  const { slug } = params;
+  console.log(slug);
+  // fetch data from the specified URL / API
+  const post = await getData(slug);
+  console.log(post);
+
   return (
     // Page container
     <div className="pageContainer">
@@ -19,7 +70,7 @@ const SinglePostPage = () => {
       {/* Right section */}
       <div className="flex flex-[2] flex-col gap-[50px]">
         {/* blog title */}
-        <h1 className="text-[64px]">Title</h1>
+        <h1 className="text-[64px]">{post?.title}</h1>
 
         {/* blog information */}
         <div className="flex gap-[20px]">
@@ -33,10 +84,12 @@ const SinglePostPage = () => {
           />
 
           {/* author's name */}
-          <div className="flex flex-col gap-[10px]">
-            <span className="font-bold text-gray-500">Author</span>
-            <span className="font-medium">Terry Jefferson</span>
-          </div>
+          {/* it's good practice to show loading indicator here when user data is fetching after the post data has been fetched */}
+          {post && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={post.userId} />
+            </Suspense>
+          )}
 
           {/* blog post release date */}
           <div className="flex flex-col gap-[10px]">
@@ -46,14 +99,7 @@ const SinglePostPage = () => {
         </div>
 
         {/* blog description */}
-        <div className="text-[20px]">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          nulla blanditiis eveniet dolore, distinctio laborum, quia deserunt
-          harum deleniti autem officiis, aperiam cumque eius! Iusto illo,
-          reiciendis eos, provident hic soluta ad suscipit aperiam repudiandae
-          facere, odio nisi voluptatem deserunt ullam esse. Iure mollitia nobis
-          dolore dolor, commodi vitae quidem.
-        </div>
+        <div className="text-[20px]">{post.body}</div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
+import ClientSideProviderTest from "@/components/ClientSideProviderTest";
 
 export const metadata = {
   title: "Next.js",
@@ -17,15 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-default-bg text-default-text">
-        {/* main container */}
-        <div className="m-auto flex min-h-screen w-[1536px] flex-col justify-between m2xl:w-[1366px] m1xl:w-[1280px] mxl:w-[1024px] mxl:px-[20px] mlg:w-[768px] mmd:w-[640px] msm:w-[475px] mxsm:w-[380px]">
-          <Navbar />
+        {/* Provider Component Wrapper */}
+        {/* if you wrap your application with a Client Component, the Server Child Components stay Server Components */}
+        <ClientSideProviderTest>
+          {/* main container */}
+          <div className="m-auto flex min-h-screen w-[1536px] flex-col justify-between m2xl:w-[1366px] m1xl:w-[1280px] mxl:w-[1024px] mxl:px-[20px] mlg:w-[768px] mmd:w-[640px] msm:w-[475px] mxsm:w-[380px]">
+            <Navbar />
 
-          {/* components passed to the Root Layout */}
-          {children}
+            {/* components passed to the Root Layout */}
+            {children}
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </ClientSideProviderTest>
       </body>
     </html>
   );

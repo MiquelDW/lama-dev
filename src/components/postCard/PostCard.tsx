@@ -1,8 +1,15 @@
+import { PostData } from "@/app/blog/page";
 import Image from "next/image";
 // navigate users to the specified routes within the application without a full page reload
 import Link from "next/link";
 
-const PostCard = () => {
+// predefine object structure for the given 'props' object
+type PostCardProps = {
+  post: PostData;
+};
+
+const PostCard = ({ post }: PostCardProps) => {
+  11;
   return (
     // Card container
     <div className="mb-[20px] flex flex-col gap-[20px]">
@@ -23,16 +30,12 @@ const PostCard = () => {
 
       {/* Bottom section */}
       <div className="flex flex-col">
-        <h1 className="mb-[20px] w-[90%] text-[24px]">Title</h1>
+        <h1 className="mb-[20px] w-[90%] text-[24px]">{post.title}</h1>
         <p className="mb-[20px] w-[90%] font-light text-gray-400">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
-          accusantium asperiores, placeat sit dolore amet, voluptatibus quam
-          distinctio, ratione pariatur excepturi! Iusto, unde quidem! Rem nemo
-          ratione blanditiis hic culpa? Dolores omnis earum perferendis odio
-          corporis minima rem officia! Sequi nulla fugit cum accusantium.
+          {post.body}
         </p>
         {/* navigate user to the specified route */}
-        <Link className="underline" href="/blog/post">
+        <Link className="underline" href={`/blog/${post.id}`}>
           READ MORE
         </Link>
       </div>
