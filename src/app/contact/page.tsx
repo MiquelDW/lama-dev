@@ -1,7 +1,8 @@
 // indicate that this file or module should be treated as a Client Component
 // in Next.js, you should use client components for interactivity and dynamic content on a website because they enable browser-side rerendering and event handling, providing a responsive and interactive user experience
-"use client";
+// "use client";
 
+import { Metadata } from "next";
 // Next.js recommends using the '<Image />' component instead of the regular '<img>' HTML element to automatically optimize images, potentially improving LCP (Largest Contentful Paint) and overall page performance
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -12,6 +13,12 @@ import Image from "next/image";
 // const HydrationTestNoSSR = dynamic(() => import("@/components/HydrationTest"), {
 //   ssr: false,
 // });
+
+// add metadata to the Contact Page
+export const metadata: Metadata = {
+  title: "Contact Page",
+  description: "Contact description",
+};
 
 const ContactPage = () => {
   // No problem

@@ -1,7 +1,36 @@
 import PostUser from "@/components/postUser/PostUser";
+import { Metadata } from "next";
 import Image from "next/image";
 import { ReadonlyURLSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { PostData } from "../page";
+
+// use 'generateMetadata' function to dynamically define route-specific metadata based on the fetched data, ensuring the metadata matches the content fetched for each route
+// this dynamically defined metadata is generated and applied appropriately during the server-side rendering process
+// 'generateMetadata' function returns a 'Promise' that resolves to an object of type 'Metadata'
+export const generateMetadata = async ({
+  params,
+}: SinglePostPageProps): Promise<Metadata> => {
+  // destructure route parameter 'slug' from the given 'params' prop
+  const { slug } = params;
+
+  // fetch data from the specified URL / API
+  // this performs the exact same GET request inside the function component
+  // request memorization optimizes performance by not making additional requests that return the same data
+  // instead, the saved GET result is reused
+
+  // 1. When a component makes a data request, the result is stored in a cache.
+  // 2. If a (child) component needs the same data, it first checks the cache.
+  // 3. If the data is present in the cache, it uses the cached data instead of making a new request.
+  // This avoids unnecessary network requests, reduces latency, and can improve overall application performance.
+  const post: PostData = await getData(slug);
+
+  // return Metadata object that has been dynamically configured
+  return {
+    title: post.title,
+    description: post.body,
+  };
+};
 
 // GET request handler function
 const getData = async (slug: string) => {
@@ -39,7 +68,7 @@ type SinglePostPageProps = {
 };
 
 // dynamic page for each blog post from whatever user
-// destructure 'params' and 'searchParams' from given 'props' object
+// destructure 'params' and 'searchParams' from the given 'context' object
 const SinglePostPage = async ({
   params,
   searchParams,
@@ -50,7 +79,7 @@ const SinglePostPage = async ({
   const { slug } = params;
   console.log(slug);
   // fetch data from the specified URL / API
-  const post = await getData(slug);
+  const post: PostData = await getData(slug);
   console.log(post);
 
   return (
